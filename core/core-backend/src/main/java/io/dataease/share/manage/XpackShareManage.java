@@ -218,7 +218,8 @@ public class XpackShareManage {
             vo.setShareDisable(true);
             return vo;
         }
-        boolean inIframeError = request.isInIframe() && !LicenseUtil.licenseValid();
+//        boolean inIframeError = request.isInIframe() && !LicenseUtil.licenseValid();
+        boolean inIframeError = false;
         if (inIframeError) {
             return new XpackShareProxyVO();
         }
