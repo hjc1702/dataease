@@ -62,6 +62,7 @@ public class SQLConstants {
     public static final String CAST = "CAST(%s AS %s)";
 
     public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+//    public static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd 00:00:00";
 
     public static final String DEFAULT_INT_FORMAT = "DECIMAL(19,0)";
 

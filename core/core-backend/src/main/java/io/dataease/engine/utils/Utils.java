@@ -421,7 +421,7 @@ public class Utils {
 
     public static String transLong2Str(Long ts) {
         Date date = new Date(ts);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
         return simpleDateFormat.format(date);
     }
 

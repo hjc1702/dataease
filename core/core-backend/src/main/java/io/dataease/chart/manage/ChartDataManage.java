@@ -394,6 +394,9 @@ public class ChartDataManage {
             filterResult.getContext().put("querySql", querySql);
         }
 
+        logger.info("filterResult: {}", filterResult);
+        logger.info("sqlMap: {}", sqlMap);
+        logger.info("sqlMeta: {}", sqlMeta);
         ChartCalcDataResult calcResult = chartHandler.calcChartResult(view, formatResult, filterResult, sqlMap, sqlMeta, provider);
         return chartHandler.buildChart(view, calcResult, formatResult, filterResult);
     }
