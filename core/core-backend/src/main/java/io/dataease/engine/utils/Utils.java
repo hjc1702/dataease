@@ -419,9 +419,22 @@ public class Utils {
         return map;
     }
 
+    public static long handleTimeZone(long ts) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date(ts));
+        // 这里假设传进来的时间是 xx:00:00 或者 xx:59:59
+        if (calendar.get(Calendar.MINUTE) == 0 || calendar.get(Calendar.SECOND) == 0) {
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+        } else if (calendar.get(Calendar.MINUTE) == 59 || calendar.get(Calendar.SECOND) == 59) {
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+        }
+        return calendar.getTimeInMillis();
+    }
+
     public static String transLong2Str(Long ts) {
+        ts = handleTimeZone(ts);
         Date date = new Date(ts);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return simpleDateFormat.format(date);
     }
 
