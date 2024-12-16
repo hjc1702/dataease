@@ -426,7 +426,11 @@ public class Utils {
         if (calendar.get(Calendar.MINUTE) == 0 || calendar.get(Calendar.SECOND) == 0) {
             calendar.set(Calendar.HOUR_OF_DAY, 0);
         } else if (calendar.get(Calendar.MINUTE) == 59 || calendar.get(Calendar.SECOND) == 59) {
-            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            if (calendar.get(Calendar.HOUR_OF_DAY) != 23) {
+                calendar.set(Calendar.HOUR_OF_DAY, 23);
+                // 减去一天
+                calendar.add(Calendar.DAY_OF_MONTH, -1);
+            }
         }
         return calendar.getTimeInMillis();
     }
